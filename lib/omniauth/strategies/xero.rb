@@ -11,7 +11,23 @@ module OmniAuth
         authorize_path:     "/oauth/Authorize",
         request_token_path: "/oauth/RequestToken",
         site:               "https://api.xero.com",
+        signature_method:   "RSA-SHA1",
+        ssl_client_cert:    OpenSSL::X509::Certificate.new(File.read("xero-publickey.cer")),
+        ssl_client_key:     OpenSSL::PKey::RSA.new(File.read("xero-public_privatekey.pfx")),
+        private_key_file:   "xero-privatekey.pem",
+        site:               "https://api-partner.network.xero.com",
+        authorize_url:      "https://api.xero.com/oauth/Authorize",
+        xero_url:           "https://api-partner.network.xero.com/api.xro/2.0"
       }
+
+      def consumer
+        consumer = ::OAuth::Consumer.new(options.consumer_key, options.consumer_secret, options.client_options)
+        consumer.http.open_timeout = options.open_timeout if options.open_timeout
+        consumer.http.read_timeout = options.read_timeout if options.read_timeout
+        consumer.http.cert = options.client_options[:ssl_client_cert]
+        consumer.http.key = options.client_options[:ssl_client_key]
+        consumer
+      end
 
       credentials do
         {
