@@ -12,7 +12,7 @@ module OmniAuth
         request_token_path: "/oauth/RequestToken",
         signature_method:   "RSA-SHA1",
         ssl_client_cert:    OpenSSL::X509::Certificate.new(File.read("xero-publickey.cer")),
-        ssl_client_key:     OpenSSL::PKey::RSA.new(File.read("xero-public_privatekey.pfx")),
+        ssl_client_key:     OpenSSL::PKey::RSA.new(File.read("xero-privatekey.pem")),
         private_key_file:   "#{Rails.root}/xero-privatekey.pem",
         site:               "https://api-partner.network.xero.com",
         authorize_url:      "https://api.xero.com/oauth/Authorize",
