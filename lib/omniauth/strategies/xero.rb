@@ -1,4 +1,5 @@
 require "omniauth/strategies/oauth"
+require "socket"
 
 module OmniAuth
   module Strategies
