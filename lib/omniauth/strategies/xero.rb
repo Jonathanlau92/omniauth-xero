@@ -10,7 +10,6 @@ module OmniAuth
         access_token_path:  "/oauth/AccessToken",
         authorize_path:     "/oauth/Authorize",
         request_token_path: "/oauth/RequestToken",
-        site:               "https://api.xero.com",
         signature_method:   "RSA-SHA1",
         ssl_client_cert:    OpenSSL::X509::Certificate.new(File.read("xero-publickey.cer")),
         ssl_client_key:     OpenSSL::PKey::RSA.new(File.read("xero-public_privatekey.pfx")),
