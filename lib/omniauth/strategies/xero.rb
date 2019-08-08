@@ -14,9 +14,9 @@ module OmniAuth
         ssl_client_cert:    OpenSSL::X509::Certificate.new(File.read("xero-publickey.cer")),
         ssl_client_key:     OpenSSL::PKey::RSA.new(File.read("xero-privatekey.pem")),
         private_key_file:   "xero-privatekey.pem",
-        site:               "https://api.xero.com/api.xro",
+        site:               "https://api.xero.com",
         authorize_url:      "https://api.xero.com/oauth/Authorize",
-        xero_url:           "https://api.xero.com/api.xro/2.0"
+        xero_url:           "https://api.xero.com/api.xro/2.0/"
       }
 
       def consumer
