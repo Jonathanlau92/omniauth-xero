@@ -34,7 +34,7 @@ module OmniAuth
           secret:                   access_token.secret,
           expires_at:               (Time.now + Integer(access_token.params[:oauth_expires_in])).to_i,
           session_handle:           access_token.params[:oauth_session_handle],
-          authorization_expires_at: access_token.params[:oauth_authorization_expires_in]
+          authorization_expires_at: access_token.params[:oauth_authorization_expires_in],
           oauth_verifier:           access_token.params[:oauth_verifier]
         }
       end
